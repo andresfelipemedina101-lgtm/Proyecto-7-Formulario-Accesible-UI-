@@ -1,0 +1,230 @@
+/* ---------- Reset básico ---------- */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+/* ---------- Contenedor principal de dos columnas ---------- */
+.form-container {
+  display: flex;
+  gap: 40px;
+  background: #ffffff;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Columna izquierda: formulario */
+.form-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Columna derecha: progreso y requisitos */
+.form-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ---------- Campos del formulario ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #111;
+}
+
+.field input {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  outline: none;
+  color: #111;
+  background: #fff;
+}
+
+/* Placeholder con contraste suficiente */
+.field input::placeholder {
+  color: #767676;
+}
+
+/* Estado de foco visible para teclado */
+.field input:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 2px;
+  border-color: #111;
+}
+
+/* Input con error */
+.field input.input-error {
+  border: 2px solid #b00020;
+}
+
+.field input.input-error:focus-visible {
+  outline: 3px solid #b00020;
+  outline-offset: 2px;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: #b00020;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* ---------- Contenedor de input con botón de ojo ---------- */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* espacio para el botón */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #111;
+  padding: 4px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.toggle-password:hover {
+  background: #e0e0e0;
+}
+
+.toggle-password:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 2px;
+}
+
+/* ---------- Botón principal ---------- */
+.submit-button {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.submit-button:hover {
+  background: #333;
+}
+
+.submit-button:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 2px;
+}
+
+/* ---------- Círculo de progreso ---------- */
+.progress-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  /* conic-gradient: 65% negro, resto gris claro */
+  background: conic-gradient(#111 0% 65%, #d0d0d0 65% 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Círculo blanco interior para que quede como un anillo */
+.progress-circle::before {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.progress-text {
+  position: relative;
+  font-size: 22px;
+  font-weight: bold;
+  color: #111;
+}
+
+.progress-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #111;
+  text-align: center;
+  margin: 0;
+}
+
+/* ---------- Caja de requisitos ---------- */
+.requirements {
+  background: #e8e8e8;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.requirements ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.requirements li {
+  font-size: 14px;
+  color: #111;
+}
+
+/* Requisitos completados: tachados y en gris */
+.requirements li.completed {
+  text-decoration: line-through;
+  color: #767676;
+}
+
+/* ---------- Responsive sencillo ---------- */
+@media (max-width: 700px) {
+  .form-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+}

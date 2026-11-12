@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Accesible</title>
+  <!-- Enlace al archivo CSS externo -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="form-container">
+    <!-- Columna izquierda: formulario -->
+    <form class="form-left" novalidate>
+      <!-- Nombre completo -->
+      <div class="field">
+        <label for="fullname">Full Name</label>
+        <input
+          type="text"
+          id="fullname"
+          name="fullname"
+          placeholder="What should we call you?"
+          aria-required="true"
+          autocomplete="name"
+        >
+      </div>
+
+      <!-- Email con error -->
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value="john@doe.com"
+          class="input-error"
+          aria-required="true"
+          aria-invalid="true"
+          aria-describedby="email-error"
+          autocomplete="email"
+        >
+        <p class="error-message" id="email-error" role="alert">
+          Email is already taken
+        </p>
+      </div>
+
+      <!-- Contraseña -->
+      <div class="field">
+        <label for="password">Enter Password</label>
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="XXXXXXXX"
+            aria-required="true"
+            autocomplete="new-password"
+          >
+          <button
+            type="button"
+            class="toggle-password"
+            aria-label="Password is hidden. Show password"
+            aria-pressed="false"
+          >◉</button>
+        </div>
+      </div>
+
+      <!-- Confirmar contraseña -->
+      <div class="field">
+        <label for="confirm-password">Confirm Password</label>
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            placeholder="XXXXXXXX"
+            aria-required="true"
+            autocomplete="new-password"
+          >
+          <button
+            type="button"
+            class="toggle-password"
+            aria-label="Password is hidden. Show password"
+            aria-pressed="false"
+          >◉</button>
+        </div>
+      </div>
+
+      <!-- Botón principal -->
+      <button type="submit" class="submit-button">Update Profile</button>
+    </form>
+
+    <!-- Columna derecha: progreso y requisitos -->
+    <aside class="form-right">
+      <!-- Círculo de progreso -->
+      <div
+        class="progress-circle"
+        role="img"
+        aria-label="Profile completeness: 65 percent"
+      >
+        <span class="progress-text" aria-hidden="true">65%</span>
+      </div>
+
+      <p class="progress-label">Profile Completeness</p>
+
+      <!-- Lista de requisitos -->
+      <div class="requirements">
+        <ul>
+          <li class="completed">Create Account</li>
+          <li class="completed">Update Roadmap Progress</li>
+          <li class="completed">Setup Public Profile</li>
+          <li>Complete your first project</li>
+          <li>Invite your Friends</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+</body>
+</html>
